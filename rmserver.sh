@@ -9,3 +9,5 @@
 apt purge postfix postfix-pcre dovecot-imapd dovecot-sieve opendkim opendkim-tools spamassassin spamc fail2ban postfix-policyd-spf-python opendmarc
 
 rm -rf /etc/postfix /var/lib/postfix /etc/dovecot /var/lib/dovecot /etc/spamassassin /var/lib/spamassassin /etc/postfix-policyd-spf-python /etc/fail2ban /root/.spamassassin /var/log/spamassassin /etc/opendkim.conf /etc/opendmarc.conf
+
+# vim: ft=sh:

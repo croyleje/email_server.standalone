@@ -281,3 +281,5 @@ while (<STDIN>) {
 	syslog $syslog_priority, "warning: ignoring garbage: %.100s", $_;
     }
 }
+
+# vim: ft=perl:

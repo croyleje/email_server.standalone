@@ -615,3 +615,5 @@ EOF
 
 # Included in this git repo I have also included copies of the EICAR and GTUBE
 # text files that can be used to check antivirus and spam filters.
+
+# vim: ft=sh:
