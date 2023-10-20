@@ -556,6 +556,9 @@ score		DMARC_FAIL	3.0
 
 sed -e '/SPF/s/^#*/#/;/URIDNSBL/s/^#*/#/' -i.bak /etc/spamassassin/init.pre
 
+# Add certbot deploy hook to restart postfix and dovecot.
+echo "deploy-hook = service postfix restart && service dovecot restart" >> /etc/letsencrypt/cli.ini
+
 # A fix for "Opendkim won't start: can't open PID file?", as specified here: https://serverfault.com/a/847442
 /lib/opendkim/opendkim.service.generate
 systemctl daemon-reload
@@ -604,7 +607,9 @@ $spfentry
 Records also saved to /etc/postfix/dns_txt_records or later reference.
 
 Once you do that, you're done! Check the README for how to add users/accounts
-and how to log in."
+and how to log in.
+
+Note also recommended to reboot server and check that all services."
 EOF
 
 # Included in this git repo I have also included copies of the EICAR and GTUBE
