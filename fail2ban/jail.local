@@ -255,10 +255,6 @@ backend = %(postfix_backend)s
 action = %(action_)s
 
 
-[postfix-sasl]
-enabled = true
-
-
 # postfix-postscreen is independent of postifx aggressive mode
 # The value of this jail has been called into question but will remain enabled
 # by default until further testing can be preformed.
