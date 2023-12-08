@@ -246,10 +246,13 @@ cat > '/etc/dovecot/dovecot.conf' << EOF
 ssl = required
 #ssl_min_protocol = TLSv1.2
 ssl_prefer_server_ciphers = yes
-ssl_dh = /usr/share/dovecot/dh.pem
 
-ssl_cert = $certdir/fullchain.pem
-ssl_key = $certdir/privkey.pem
+# SSL/TLS protocols and ciphers IMPORTANT: `<` is used to append to the default
+# do not remove the `<` if you want to append to the default.
+ssl_dh = </usr/share/dovecot/dh.pem
+ssl_cert = <$certdir/fullchain.pem
+ssl_key = <$certdir/privkey.pem
+
 # Plaintext login. This is safe do to SSL further encryption is not warranted.
 auth_mechanisms = plain login
 auth_username_format = %n
