@@ -246,10 +246,10 @@ cat > '/etc/dovecot/dovecot.conf' << EOF
 ssl = required
 #ssl_min_protocol = TLSv1.2
 ssl_prefer_server_ciphers = yes
-ssl_dh = </usr/share/dovecot/dh.pem
+ssl_dh = /usr/share/dovecot/dh.pem
 
-ssl_cert = <$certdir/fullchain.pem
-ssl_key = <$certdir/privkey.pem
+ssl_cert = $certdir/fullchain.pem
+ssl_key = $certdir/privkey.pem
 # Plaintext login. This is safe do to SSL further encryption is not warranted.
 auth_mechanisms = plain login
 auth_username_format = %n
@@ -571,7 +571,7 @@ for n in dovecot.service postfix.service opendkim.service spamd.service certbot.
 done
 
 # Generating DNS txt entries.  See README.md for additional DNS service records and further information.
-pval="$(tr -d "\n" </etc/postfix/dkim/default.txt | sed "s/k=rsa.* \"p=/k=rsa; p=/;s/\"\s*\"//;s/\"\s*).*//" | grep -o "p=.*")"
+pval="$(tr -d "\n" < /etc/postfix/dkim/default.txt | sed "s/k=rsa.* \"p=/k=rsa; p=/;s/\"\s*\"//;s/\"\s*).*//" | grep -o "p=.*")"
 dkimentry="default._domainkey	TXT		v=DKIM1; k=rsa; $pval"
 dmarcentry="_dmarc	TXT		v=DMARC1; p=quarantine; rua=mailto:dmarc@$domain; fo=1"
 spfentry="@		TXT		v=spf1 mx a:$domain -all"
