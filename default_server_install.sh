@@ -559,7 +559,7 @@ sed -e '/SPF/s/^#*/#/;/URIDNSBL/s/^#*/#/' -i.bak /etc/spamassassin/init.pre
 
 # Add certbot deploy hook to restart postfix and dovecot.
 echo "#deploy-hook = service postfix reload && service dovecot reload" >> /etc/letsencrypt/cli.ini
-sed -i "/^ExecStart/s/$/ --deploy-hook = 'systemctl reboot'/" /lib/systemd/system/certbot.service
+sed -i "/^ExecStart/s/$/ --deploy-hook 'systemctl reboot'/" /lib/systemd/system/certbot.service
 
 # A fix for "Opendkim won't start: can't open PID file?", as specified here: https://serverfault.com/a/847442
 /lib/opendkim/opendkim.service.generate
