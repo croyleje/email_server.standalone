@@ -52,6 +52,12 @@
 # PRODUCTION CERTIFICATE GENERATION
 # sudo certbot certonly --standalone -d mail.<domain>.com
 
+# Copying backed up emails to new server. If you have a backup of your emails is
+# mostly easily done by copying your emails to the correct Maildir location ond
+# then running the following commands to update the index.
+
+# Remove the trailing `,S[abc]*$`.
+
 umask 022
 
 export TERM=rxvt
