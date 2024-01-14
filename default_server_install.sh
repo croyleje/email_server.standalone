@@ -76,7 +76,7 @@ run script again." && exit
 # also update the postfix/master.cf file services.
 apt install postfix postfix-pcre dovecot-imapd dovecot-sieve opendkim opendkim-tools spamassassin \
 	spamc fail2ban postfix-policyd-spf-python logrotate syslog-ng syslog-ng-scl \
-	opendmarc libmilter-dev logwatch
+	opendmarc libmilter-dev logwatch spamass-milter
 
 echo "Configuring Postfix main.cf..."
 
