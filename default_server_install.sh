@@ -58,6 +58,11 @@
 
 # Remove the trailing `,S[abc]*$`.
 
+# IMPORTANT: If your planning on using mutt or neomutt as your email client you
+# make sure your user passowrd does not contain any special characters such as
+# [@#$%^&*()_+].  These characters will cause mutt/neomutt to fail to connect
+# due to the way the password is passed to the server.
+
 umask 022
 
 export TERM=rxvt

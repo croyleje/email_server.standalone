@@ -14,6 +14,12 @@ installation process and asked about setting up a database for *openDMARC*
 select **NO**.  The database is used for generating reports for other mailbox
 providers and is not needed for the verification of your domain.
 
+*IMPORTANT:* If your planning on using mutt or neomutt as your email client you
+make sure your user password does not contain any special characters such as
+[@#$%^&*()_+].  These characters will cause mutt/neomutt to fail to connect
+due to the way the password is passed to the server.
+
+
 # Server requirements.
 
 A server with 1GB RAM and 1vCPU is sufficient for the default configuration.  If
