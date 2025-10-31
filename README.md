@@ -181,12 +181,12 @@ then your ISP will need to set your rDNS.
 
 ## Making new users/mail accounts.
 
-`useradd -m -s /bin/bash -G sudo,mail <USERNAME>`
+`useradd -m -s /bin/bash -G mail <USERNAME>`\
 `passwd <USERNAME>`
 
-Try to avoid '{(' in password if you use neomutt.
+Try to avoid '{(' in your password if you use mutt or neomutt.
 
-This will create a new user *<USERNAME>* with the email address *<USERNAME>@domain.com*.
+This will create a new user _\<USERNAME\>_ with the email address _\<USERNAME\>@domain.com_.
 
 ## Setting aliases.
 
@@ -263,6 +263,18 @@ and `Unattended-Upgrade::Automatic-Reboot-Time` settings to allow automatic
 reboots at off peak hours. It is also recommended to install the `needrestart`
 package to help identify services that need to be restarted after updates.
 
+_Debian_ uses systemd services to run periodic APT maintenance tasks.  You can
+check the relevant timers and configure them accordingly but the defaults are
+reasonable.
+
+- downloads: /lib/systemd/system/apt-daily.timer
+
+- upgrades: /lib/systemd/system/apt-daily-upgrade.timer
+
+If you would like a report of the changes and any issues I would also suggest
+installing `apt-listchanges` and editing the configuration file at
+`/etc/apt/listchanges.conf`.
+
 # News/Updates (Debian 12 Bookworm)
 
 Moving forward this script will be moved to Debian 12 Bookworm exclusively.  This
@@ -281,5 +293,9 @@ concern about leaking any information about your server or ip address.
 
 Added ***recidive-subnet*** jail to Fail2ban.  Subnet banning is officially supported
 and enabled by default.
+
+### News
+
+Currently working on updating to _Debian 13 Trixie_ and adding option flags.
 
 [//]: # " vim: set ft=markdown: "
