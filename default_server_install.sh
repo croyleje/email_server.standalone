@@ -119,10 +119,14 @@ postconf -e "smtpd_tls_cert_file = $certdir/fullchain.pem"
 postconf -e "smtpd_tls_CApath = /etc/ssl/certs/"
 
 # Exclude insecure and obsolete encryption protocols.
-postconf -e 'smtpd_tls_mandatory_protocols = !SSLv2, !SSLv3, !TLSv1, !TLSv1.1'
-postconf -e 'smtp_tls_mandatory_protocols = !SSLv2, !SSLv3, !TLSv1, !TLSv1.1'
-postconf -e 'smtpd_tls_protocols = !SSLv2, !SSLv3, !TLSv1, !TLSv1.1'
-postconf -e 'smtp_tls_protocols = !SSLv2, !SSLv3, !TLSv1, !TLSv1.1'
+# postconf -e 'smtpd_tls_mandatory_protocols = !SSLv2, !SSLv3, !TLSv1, !TLSv1.1'
+# postconf -e 'smtp_tls_mandatory_protocols = !SSLv2, !SSLv3, !TLSv1, !TLSv1.1'
+# postconf -e 'smtpd_tls_protocols = !SSLv2, !SSLv3, !TLSv1, !TLSv1.1'
+# postconf -e 'smtp_tls_protocols = !SSLv2, !SSLv3, !TLSv1, !TLSv1.1'
+postconf -e 'smtpd_tls_mandatory_protocols = >=TLSv1.2'
+postconf -e 'smtp_tls_mandatory_protocols = >=TLSv1.2'
+postconf -e 'smtpd_tls_protocols = >=TLSv1.2'
+postconf -e 'smtp_tls_protocols = >=TLSv1.2'
 
 # Here we tell Postfix to look to Dovecot for authenticating users/passwords.
 # Dovecot will be putting an authentication socket in /var/spool/postfix/private/auth
