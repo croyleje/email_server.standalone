@@ -296,6 +296,8 @@ and enabled by default.
 
 ### News
 
-Currently working on updating to _Debian 13 Trixie_ and adding option flags.
+Currently working on updating to _Debian 13 Trixie_, adding option flags and
+migrating to _Dovecot 2.4_.  Please note _Dovecot_ 2.4 has breaking changes to
+the configuration files.
 
 [//]: # " vim: set ft=markdown: "
